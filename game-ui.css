@@ -1,0 +1,334 @@
+/* Game UI Styles - Enhanced Features */
+
+/* ===== PLAYER HEALTH SYSTEM ===== */
+.Character_health-container {
+  position: absolute;
+  top: -16px;
+  left: -5px;
+  width: 26px;
+  height: 3px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.Character_health-bar {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+
+.Character_health-bar-fill {
+  height: 100%;
+  width: 100%;
+  background-color: #2ecc71;
+  border-radius: 2px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.Character_health-bar-fill.low-health {
+  background-color: #e74c3c;
+}
+
+/* Health color transitions based on percentage */
+.Character_health-bar-fill[style*="width: 60%"],
+.Character_health-bar-fill[style*="width: 59%"],
+.Character_health-bar-fill[style*="width: 58%"],
+.Character_health-bar-fill[style*="width: 57%"],
+.Character_health-bar-fill[style*="width: 56%"],
+.Character_health-bar-fill[style*="width: 55%"],
+.Character_health-bar-fill[style*="width: 54%"],
+.Character_health-bar-fill[style*="width: 53%"],
+.Character_health-bar-fill[style*="width: 52%"],
+.Character_health-bar-fill[style*="width: 51%"],
+.Character_health-bar-fill[style*="width: 50%"],
+.Character_health-bar-fill[style*="width: 49%"],
+.Character_health-bar-fill[style*="width: 48%"],
+.Character_health-bar-fill[style*="width: 47%"],
+.Character_health-bar-fill[style*="width: 46%"],
+.Character_health-bar-fill[style*="width: 45%"],
+.Character_health-bar-fill[style*="width: 44%"],
+.Character_health-bar-fill[style*="width: 43%"],
+.Character_health-bar-fill[style*="width: 42%"],
+.Character_health-bar-fill[style*="width: 41%"],
+.Character_health-bar-fill[style*="width: 40%"],
+.Character_health-bar-fill[style*="width: 39%"],
+.Character_health-bar-fill[style*="width: 38%"],
+.Character_health-bar-fill[style*="width: 37%"],
+.Character_health-bar-fill[style*="width: 36%"],
+.Character_health-bar-fill[style*="width: 35%"],
+.Character_health-bar-fill[style*="width: 34%"],
+.Character_health-bar-fill[style*="width: 33%"],
+.Character_health-bar-fill[style*="width: 32%"],
+.Character_health-bar-fill[style*="width: 31%"],
+.Character_health-bar-fill[style*="width: 30%"] {
+  background-color: #f39c12;
+}
+
+/* ===== COIN TYPES ===== */
+/* Bronze Coin */
+.Coin--bronze .Coin_sprite {
+  background: url(/images/coin.png) no-repeat no-repeat;
+  filter: sepia(0.5) brightness(0.8) contrast(1.2);
+}
+
+.Coin--bronze .Coin_shadow {
+  opacity: 0.7;
+}
+
+/* Silver Coin */
+.Coin--silver .Coin_sprite {
+  background: url(/images/coin.png) no-repeat no-repeat;
+  filter: saturate(0) brightness(1.2) contrast(1.1);
+}
+
+.Coin--silver .Coin_shadow {
+  opacity: 0.8;
+}
+
+/* Gold Coin */
+.Coin--gold .Coin_sprite {
+  background: url(/images/coin.png) no-repeat no-repeat;
+  filter: saturate(1.5) brightness(1.2);
+  animation: goldGlow 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes goldGlow {
+  from { filter: saturate(1.5) brightness(1.2); }
+  to { filter: saturate(1.8) brightness(1.4); }
+}
+
+/* ===== LEADERBOARD ===== */
+.leaderboard-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  z-index: 100;
+  image-rendering: auto;
+}
+
+.leaderboard-container h3 {
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #f8f8f8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.leaderboard-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.leaderboard-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+}
+
+.leaderboard-list li:last-child {
+  border-bottom: none;
+}
+
+.leaderboard-list li.current-player {
+  background-color: rgba(46, 204, 113, 0.3);
+  border-radius: 4px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.leaderboard-name {
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaderboard-coins {
+  color: gold;
+  font-weight: bold;
+}
+
+/* ===== CHAT BOX ===== */
+.chat-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 280px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  z-index: 100;
+  image-rendering: auto;
+}
+
+.chat-messages {
+  height: 150px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding-right: 5px;
+  font-size: 13px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.chat-message {
+  margin-bottom: 8px;
+  line-height: 1.3;
+  word-wrap: break-word;
+}
+
+.chat-player-name {
+  font-weight: bold;
+  color: #59ff5a;
+}
+
+.chat-message.own-message .chat-player-name {
+  color: #64BEFF;
+}
+
+.chat-input-container {
+  display: flex;
+  gap: 5px;
+}
+
+.chat-input {
+  flex-grow: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 5px 8px;
+  color: white;
+  font-size: 13px;
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+.chat-input:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.chat-send-button {
+  background-color: #59ff5a;
+  border: none;
+  border-radius: 4px;
+  color: #222;
+  font-weight: bold;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  height: auto;
+  transition: background-color 0.2s;
+}
+
+.chat-send-button:hover {
+  background-color: #4ae64b;
+}
+
+.chat-send-button:active {
+  background-color: #3bc73c;
+}
+
+/* ===== EMOTES ===== */
+.Character_emote {
+  position: absolute;
+  top: -24px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.Character_emote.active {
+  opacity: 1;
+  transform: translateY(0);
+  animation: bounceEmote 0.3s ease-out, fadeEmote 2s ease-in forwards;
+}
+
+@keyframes bounceEmote {
+  0% { transform: translateY(5px); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeEmote {
+  0%, 80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ===== IDLE ANIMATION ===== */
+.Character.idle {
+  opacity: 0.7;
+  filter: grayscale(0.5);
+  transition: opacity 0.5s, filter 0.5s;
+}
+
+.Character.idle .Character_sprite {
+  animation: idlePulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes idlePulse {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(0.8); }
+}
+
+/* ===== HAZARD ZONES ===== */
+/* Add visual indicator for hazard zones */
+.hazard-zone {
+  background-color: rgba(231, 76, 60, 0.3);
+  border: 1px solid rgba(231, 76, 60, 0.5);
+  animation: hazardPulse 1.5s infinite alternate;
+}
+
+@keyframes hazardPulse {
+  from { background-color: rgba(231, 76, 60, 0.3); }
+  to { background-color: rgba(231, 76, 60, 0.5); }
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  .leaderboard-container {
+    top: 10px;
+    right: 10px;
+    width: 160px;
+    font-size: 12px;
+  }
+  
+  .chat-container {
+    bottom: 10px;
+    left: 10px;
+    width: 240px;
+  }
+  
+  .chat-messages {
+    height: 120px;
+  }
+}
